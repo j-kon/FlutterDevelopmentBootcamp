@@ -21,10 +21,32 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<String> buttons = [
+    'C',
+    'DEL',
+    '%',
+    '/',
+    '9',
+    '8',
+    '7',
+    '*',
+    '6',
+    '5',
+    '4',
+    '-',
+    '3',
+    '2',
+    '1',
+    '+',
+    '0',
+    '.',
+    'ANS',
+    '=',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[200],
+      backgroundColor: Colors.blue[100],
       body: Column(
         children: [
           Expanded(
@@ -33,15 +55,46 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             flex: 2,
             child: Container(
-              child: CustomButton(
-                color: Colors.blue[900],
-                textColor: Colors.white,
-                buttonText: '0',
-              ),
+              child: GridView.builder(
+                  itemCount: buttons.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4),
+                  itemBuilder: (BuildContext context, int index) {
+                    if (index == 0) {
+                      return CustomButton(
+                        buttonText: buttons[index],
+                        color: Colors.green[500],
+                        textColor: Colors.white,
+                      );
+                    } else if (index == 1) {
+                      return CustomButton(
+                        buttonText: buttons[index],
+                        color: Colors.red,
+                        textColor: Colors.white,
+                      );
+                    } else {
+                      return CustomButton(
+                        buttonText: buttons[index],
+                        color: isOperation(buttons[index])
+                            ? Colors.blue[900]
+                            : Colors.blue[300],
+                        textColor: isOperation(buttons[index])
+                            ? Colors.white
+                            : Colors.blue[900],
+                      );
+                    }
+                  }),
             ),
           ),
         ],
       ),
     );
+  }
+
+  bool isOperation(String x) {
+    if (x == '%' || x == '/' || x == '*' || x == '-' || x == '+' || x == '=') {
+      return true;
+    }
+    return false;
   }
 }
