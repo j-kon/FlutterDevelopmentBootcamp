@@ -33,6 +33,7 @@ class _HomePageState extends State<HomePage> {
   var textStyle = TextStyle(color: Colors.white, fontSize: 30);
   int oScore = 0;
   int xScore = 0;
+  int drawScore = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,8 +121,10 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       if (oTurn && displayO[index] == '') {
         displayO[index] = 'O';
+        drawScore += 1;
       } else if (!oTurn && displayO[index] == '') {
         displayO[index] = 'X';
+        drawScore += 1;
       }
       oTurn = !oTurn;
       _checkWinner();
@@ -199,7 +202,30 @@ class _HomePageState extends State<HomePage> {
       _showWinDialog(
         displayO[0],
       );
+    } else if (drawScore == 9) {
+      _showDrawDialog();
     }
+  }
+
+  void _showDrawDialog() {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('DRAW'),
+          actions: [
+            FlatButton(
+              onPressed: () {
+                _clearBoaed();
+                Navigator.of(context).pop();
+              },
+              child: Text('Play Again!'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   void _showWinDialog(String winner) {
@@ -230,10 +256,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _clearBoaed() {
-    setState(() {
-      for (int i = 0; i < 9; i++) {
-      displayO[i] = '';
-    } 
-    });
+    setState(
+      () {
+        for (int i = 0; i < 9; i++) {
+          displayO[i] = '';
+        }
+      },
+    );
+    drawScore = 0;
   }
 }
