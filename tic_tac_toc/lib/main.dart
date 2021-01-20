@@ -29,7 +29,7 @@ class _IntroScreenState extends State<IntroScreen>
     with SingleTickerProviderStateMixin {
   static var newFont = GoogleFonts.pressStart2p(
       textStyle: TextStyle(color: Colors.black, letterSpacing: 3));
-  static var newFontWhite = GoogleFonts.pressStart2p(
+  static var newFontWhite = GoogleFonts.vt323(
       textStyle: TextStyle(color: Colors.white, letterSpacing: 3));
 
   @override
@@ -38,7 +38,7 @@ class _IntroScreenState extends State<IntroScreen>
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          backgroundColor: Colors.blue[900],
+          backgroundColor: Colors.black,
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -58,8 +58,8 @@ class _IntroScreenState extends State<IntroScreen>
                   flex: 2,
                   child: Container(
                     child: AvatarGlow(
-                      endRadius: 140,
-                      duration: Duration(seconds: 2),
+                      endRadius: 150,
+                      duration: Duration(seconds: 3),
                       glowColor: Colors.white,
                       repeat: true,
                       repeatPauseDuration: Duration(seconds: 1),
@@ -75,7 +75,7 @@ class _IntroScreenState extends State<IntroScreen>
                           child: Container(
                             child: Image.asset(
                               'images/tictactoelogo.png',
-                              color: Colors.blue,
+                              color: Colors.blue[900],
                               fit: BoxFit.scaleDown,
                             
                             ),

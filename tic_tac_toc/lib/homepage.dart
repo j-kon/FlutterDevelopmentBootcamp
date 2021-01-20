@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
     '',
     '',
   ];
-  var textStyle = TextStyle(color: Colors.white, fontSize: 30);
+  var textStyle = TextStyle(color: Colors.white, fontSize: 60);
   int oScore = 0;
   int xScore = 0;
   int drawScore = 0;
@@ -27,13 +27,13 @@ class _HomePageState extends State<HomePage> {
   static var newFont = GoogleFonts.pressStart2p(
     textStyle: TextStyle(color: Colors.black, letterSpacing: 3),
   );
-  static var newFontWhite = GoogleFonts.pressStart2p(
+  static var newFontWhite = GoogleFonts.vt323(
       textStyle:
-          TextStyle(color: Colors.white, letterSpacing: 3, fontSize: 15));
+          TextStyle(color: Colors.white, letterSpacing: 2, fontSize: 40));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[800],
+      backgroundColor: Colors.black87,
       body: Column(
         children: [
           SizedBox(
@@ -100,13 +100,16 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: Colors.grey[700],
+                        color: Colors.blue[900],
                       ),
                     ),
                     child: Center(
                       child: Text(
                         displayO[index],
-                        style: TextStyle(color: Colors.white, fontSize: 40),
+                        style: GoogleFonts.ewert(
+                          textStyle:
+                              TextStyle(fontSize: 80, color: Colors.white70),
+                        ),
                       ),
                     ),
                   ),
@@ -236,14 +239,31 @@ class _HomePageState extends State<HomePage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('DRAW'),
+          backgroundColor: Colors.blue[900],
+          title: Center(
+            child: Text(
+              'DRAW',
+              style: newFontWhite,
+            ),
+          ),
           actions: [
             FlatButton(
               onPressed: () {
                 _clearBoaed();
                 Navigator.of(context).pop();
               },
-              child: Text('Play Again!'),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Container(
+                    padding: EdgeInsets.all(30),
+                  color: Colors.white,
+                    child: Center(
+                      child: Text(
+                        'Play Again!',
+                        style: newFont,
+                      ),
+                    ),
+                  )),
             ),
           ],
         );
@@ -257,14 +277,32 @@ class _HomePageState extends State<HomePage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('WINNER IS ' + winner),
+          backgroundColor: Colors.blue[900],
+          title: Center(
+            child: Text(
+              'WINNER IS ' + winner,
+              style: newFontWhite,
+            ),
+          ),
           actions: [
             FlatButton(
               onPressed: () {
                 _clearBoaed();
                 Navigator.of(context).pop();
               },
-              child: Text('Play Again!'),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  padding: EdgeInsets.all(30),
+                  color: Colors.white,
+                  child: Center(
+                    child: Text(
+                      'Play Again!',
+                      style: newFont,
+                    ),
+                  ),
+                ),
+              ),
             ),
           ],
         );
