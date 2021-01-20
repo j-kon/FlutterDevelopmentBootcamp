@@ -1,5 +1,6 @@
 import 'package:calculator/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:math_expressions/math_expressions.dart';
 
 void main() {
@@ -61,19 +62,23 @@ class _HomePageState extends State<HomePage> {
                     height: 50,
                   ),
                   Container(
-                    padding: EdgeInsets.all(25),
+                    padding: EdgeInsets.all(10),
                     alignment: Alignment.centerLeft,
                     child: Text(
                       userQuestion,
-                      style: TextStyle(fontSize: 30, color: Colors.white),
+                      style: GoogleFonts.blackOpsOne(
+                        textStyle: TextStyle(fontSize: 30, color: Colors.white),
+                      ),
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.all(25),
+                    padding: EdgeInsets.all(10),
                     alignment: Alignment.centerRight,
                     child: Text(
                       userAnswer,
-                      style: TextStyle(fontSize: 30, color: Colors.white),
+                      style: GoogleFonts.blackOpsOne(
+                        textStyle: TextStyle(fontSize: 30, color: Colors.white),
+                      ),
                     ),
                   ),
                 ],

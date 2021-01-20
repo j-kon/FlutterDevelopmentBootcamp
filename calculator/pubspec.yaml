@@ -1,7 +1,6 @@
 name: calculator
 description: A new Flutter project.
 
-
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -12,14 +11,13 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0
+  google_fonts: ^1.1.1
   math_expressions: ^2.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
 flutter:
 
- 
   uses-material-design: true
