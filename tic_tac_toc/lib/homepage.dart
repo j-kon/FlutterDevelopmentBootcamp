@@ -34,111 +34,113 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black87,
-      body: Column(
-        children: [
-          SizedBox(
-            height: 15,
-          ),
-          Expanded(
-            child: Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Player X',
-                          style: newFontWhite,
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          xScore.toString(),
-                          style: newFontWhite,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Player O',
-                          style: newFontWhite,
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          oScore.toString(),
-                          style: newFontWhite,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 15,
             ),
-          ),
-          Expanded(
-            flex: 3,
-            child: GridView.builder(
-              itemCount: 9,
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-              itemBuilder: (BuildContext context, int index) {
-                return GestureDetector(
-                  onTap: () {
-                    _tapped(index);
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.blue[900],
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        displayO[index],
-                        style: GoogleFonts.ewert(
-                          textStyle:
-                              TextStyle(fontSize: 80, color: Colors.white70),
-                        ),
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-          Expanded(
-            child: Container(
-              child: Center(
-                child: Column(
+            Expanded(
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'TIC TAC TOE',
-                      style: newFontWhite,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Player X',
+                            style: newFontWhite,
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            xScore.toString(),
+                            style: newFontWhite,
+                          ),
+                        ],
+                      ),
                     ),
-                    SizedBox(
-                      height: 60,
-                    ),
-                    Text(
-                      '@jaydroid',
-                      style: newFontWhite,
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Player O',
+                            style: newFontWhite,
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            oScore.toString(),
+                            style: newFontWhite,
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
-          ),
-        ],
+            Expanded(
+              flex: 3,
+              child: GridView.builder(
+                itemCount: 9,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3),
+                itemBuilder: (BuildContext context, int index) {
+                  return GestureDetector(
+                    onTap: () {
+                      _tapped(index);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.blue[900],
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          displayO[index],
+                          style: GoogleFonts.ewert(
+                            textStyle:
+                                TextStyle(fontSize: 80, color: Colors.white70),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Expanded(
+              child: Container(
+                child: Center(
+                  child: Column(
+                    children: [
+                      Text(
+                        'TIC TAC TOE',
+                        style: newFontWhite,
+                      ),
+                      SizedBox(
+                        height: 60,
+                      ),
+                      Text(
+                        '@jaydroid',
+                        style: newFontWhite,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -256,7 +258,7 @@ class _HomePageState extends State<HomePage> {
                   borderRadius: BorderRadius.circular(20),
                   child: Container(
                     padding: EdgeInsets.all(30),
-                  color: Colors.white,
+                    color: Colors.white,
                     child: Center(
                       child: Text(
                         'Play Again!',

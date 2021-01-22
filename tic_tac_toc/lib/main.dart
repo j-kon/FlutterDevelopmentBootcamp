@@ -38,92 +38,92 @@ class _IntroScreenState extends State<IntroScreen>
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          backgroundColor: Colors.black,
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 120.0),
-                    child: Container(
-                      child: Text(
-                        "TIC TAC TOE",
-                        style: newFontWhite.copyWith(fontSize: 30),
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 2,
+        backgroundColor: Colors.black,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 120.0),
                   child: Container(
-                    child: AvatarGlow(
-                      endRadius: 150,
-                      duration: Duration(seconds: 3),
-                      glowColor: Colors.white,
-                      repeat: true,
-                      repeatPauseDuration: Duration(seconds: 1),
-                      startDelay: Duration(seconds: 1),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                              style: BorderStyle.none,
-                            ),
-                            shape: BoxShape.circle),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.grey[900],
-                          child: Container(
-                            child: Image.asset(
-                              'images/tictactoelogo.png',
-                              color: Colors.blue[900],
-                              fit: BoxFit.scaleDown,
-                            
-                            ),
-                          ),
-                          radius: 80.0,
-                        ),
-                      ),
+                    child: Text(
+                      "TIC TAC TOE",
+                      style: newFontWhite.copyWith(fontSize: 30),
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 80.0),
+              ),
+              Expanded(
+                flex: 2,
+                child: Container(
+                  child: AvatarGlow(
+                    endRadius: 150,
+                    duration: Duration(seconds: 3),
+                    glowColor: Colors.white,
+                    repeat: true,
+                    repeatPauseDuration: Duration(seconds: 1),
+                    startDelay: Duration(seconds: 1),
                     child: Container(
-                      child: Text(
-                        "@am_jaykon",
-                        style: newFontWhite.copyWith(fontSize: 20),
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            style: BorderStyle.none,
+                          ),
+                          shape: BoxShape.circle),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.grey[900],
+                        child: Container(
+                          child: Image.asset(
+                            'images/tictactoelogo.png',
+                            color: Colors.blue[900],
+                            fit: BoxFit.scaleDown,
+                          ),
+                        ),
+                        radius: 80.0,
                       ),
                     ),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
-                    );
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 40, right: 40, bottom: 60),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Container(
-                        padding: EdgeInsets.all(30),
-                        color: Colors.white,
-                        child: Center(
-                          child: Text(
-                            'PLAY GAME',
-                            style: newFont,
-                          ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 80.0),
+                  child: Container(
+                    child: Text(
+                      "@am_jaykon",
+                      style: newFontWhite.copyWith(fontSize: 20),
+                    ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePage()),
+                  );
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(left: 40, right: 40, bottom: 60),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Container(
+                      padding: EdgeInsets.all(30),
+                      color: Colors.white,
+                      child: Center(
+                        child: Text(
+                          'PLAY GAME',
+                          style: newFont,
                         ),
                       ),
                     ),
                   ),
                 ),
-              ],
-            ),
-          )),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
